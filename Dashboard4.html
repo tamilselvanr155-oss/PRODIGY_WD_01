@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Techie & Pleasant Interactive Nav</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    :root {
+      --bg-dark: #0a0f1d;
+      --accent-cyan: #00f2fe;
+      --accent-blue: #4facfe;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      
+      /* Default Nav State (Top of page) */
+      --nav-bg: rgba(10, 15, 29, 0.4);
+      --nav-border: rgba(255, 255, 255, 0.08);
+      
+      /* Scrolled Nav State */
+      --nav-scrolled-bg: rgba(13, 22, 41, 0.85);
+      --nav-scrolled-border: rgba(0, 242, 254, 0.3);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--nav-border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .logo-icon {
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-cyan);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover .logo-icon {
+      transform: scale(1.4);
+    }
+
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    
+    .nav-links a:hover {
+      color: var(--text-main);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      box-shadow: 0 0 8px var(--accent-cyan);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 80%;
+    }
+
+    
+    .navbar.scrolled {
+      padding: 1rem 4rem;
+      background: var(--nav-scrolled-bg);
+      border-bottom: 1px solid var(--nav-scrolled-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 15px rgba(0, 242, 254, 0.1);
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: #cbd5e1;
+    }
+
+    .navbar.scrolled .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    
+    .grid-bg {
+      background-image: radial-gradient(rgba(0, 242, 254, 0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .accent-text {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <span class="logo-icon"></span>
+      NEXUS<span class="accent-text">.IO</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  
+  <section id="home" class="section grid-bg">
+    <h1 class="hero-title">Interactive <span class="accent-text">Navigation</span></h1>
+    <p class="hero-desc">Scroll down to observe the backdrop blur, dynamic border glowing, and sleek height transitions triggered by JavaScript.</p>
+  </section>
+
+  <section id="features" class="section">
+    <h2 class="hero-title">Techie <span class="accent-text">Vibe</span></h2>
+    <p class="hero-desc">Hover over menu items to experience the smooth glowing indicator and soft background highlights.</p>
+  </section>
+
+  <section id="architecture" class="section grid-bg">
+    <h2 class="hero-title">Clean <span class="accent-text">Architecture</span></h2>
+    <p class="hero-desc">Structured using HTML5 semantic tags, CSS modern Flexbox & Variables, and lightweight vanilla JavaScript.</p>
+  </section>
+
+  
+  <script>
+    const navbar = document.getElementById('navbar');
+
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
