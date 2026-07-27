@@ -1,7 +1,7 @@
 # PRODIGY_WD_01
 Interactive Navigation Bar UI/UX  A lightweight, modern, and interactive navigation menu featuring a sleek glassmorphism aesthetic. Built using HTML5, CSS3, and Vanilla JavaScript, it dynamically adjusts its background styling, borders, and transitions upon scrolling, accompanied by glowing CSS hover effects for an engaging user experience.
 
-# 🚀 Interactive Navigation Menu (Task-01)
+# 🚀 Interactive Navigation Menu 
 An interactive, responsive, and modern fixed navigation bar built with **HTML**, **CSS**, and **JavaScript**. Developed as part of the Web Development Internship at **Prodigy InfoTech**.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
